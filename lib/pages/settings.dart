@@ -121,18 +121,7 @@ class _settingState extends State<Settings> {
               },
             ),
             new Divider(),
-            new ListTile(
-              leading:
-                  new Icon(Icons.info, color: Theme.of(context).accentColor),
-              title: new Text("About"),
-              onTap: () {
-                Navigator.push(context,
-                    new MaterialPageRoute(builder: (context) {
-                  return new About();
-                }));
-              },
-            ),
-            new Divider(),
+
             new Container(
                 child: isLoading
                     ? new Center(

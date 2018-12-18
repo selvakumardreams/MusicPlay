@@ -33,7 +33,6 @@ class _mainState extends State<MyApp> {
   getTheme() async {
     var pref = await SharedPreferences.getInstance();
     var val = pref.getInt("theme");
-    print("theme=$val");
     if (val == null) {
       theme = lightTheme;
     } else if (val == 1) {

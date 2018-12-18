@@ -22,7 +22,7 @@ class MusicHome extends StatefulWidget {
     new BottomItem("Albums", Icons.album),
     new BottomItem("Songs", Icons.music_note),
     new BottomItem("Artists", Icons.person),
-    new BottomItem("PlayList", Icons.playlist_add_check),
+    // new BottomItem("PlayList", Icons.playlist_add_check),
   ];
   @override
   State<StatefulWidget> createState() {
@@ -50,8 +50,8 @@ class _musicState extends State<MusicHome> {
         return new Artists(db);
       case 1:
         return new Album(db);
-      case 4:
-        return new PlayList(db);
+      // case 4:
+       // return new PlayList(db);
       default:
         return new Text("Error");
     }
@@ -196,30 +196,7 @@ class _musicState extends State<MusicHome> {
                 }));
               }
             }),
-        drawer: new Drawer(
-          child: new Column(
-            children: <Widget>[
-              new UserAccountsDrawerHeader(
-                  accountName: new Text("Music Play"), accountEmail: null),
-              new Column(
-                children: <Widget>[
-                  new ListTile(
-                      leading: new Icon(Icons.settings,
-                          color: Theme.of(context).accentColor),
-                      title: new Text("Settings"),
-                      onTap: () {
-                        Navigator.of(context).pop();
-                        Navigator
-                            .of(context)
-                            .push(new MaterialPageRoute(builder: (context) {
-                          return new Settings();
-                        }));
-                      }),
-                ],
-              )
-            ],
-          ),
-        ),
+
         body: isLoading
             ? new Center(
                 child: new CircularProgressIndicator(),

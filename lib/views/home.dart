@@ -102,7 +102,7 @@ class stateHome extends State<Home> {
                     padding:
                         const EdgeInsets.only(left: 8.0, top: 8.0, bottom: 8.0),
                     child: new Text(
-                      "Quick actions",
+                      "Mood Play",
                       style: new TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20.0,
@@ -123,12 +123,12 @@ class stateHome extends State<Home> {
                                 return new ListSongs(widget.db, 1, orientation);
                               }));
                             },
-                            child: new Icon(Icons.history),
+                            child: new Icon(Icons.directions_run),
                           ),
                           new Padding(
                               padding:
                                   const EdgeInsets.symmetric(vertical: 4.0)),
-                          new Text("Recents"),
+                          new Text("Happy"),
                         ],
                       ),
                       new Column(
@@ -141,12 +141,12 @@ class stateHome extends State<Home> {
                                 return new ListSongs(widget.db, 2, orientation);
                               }));
                             },
-                            child: new Icon(Icons.show_chart),
+                            child: new Icon(Icons.ac_unit),
                           ),
                           new Padding(
                               padding:
                                   const EdgeInsets.symmetric(vertical: 4.0)),
-                          new Text("Top songs"),
+                          new Text("Relax"),
                         ],
                       ),
                       new Column(
@@ -161,12 +161,32 @@ class stateHome extends State<Home> {
                                     new Random().nextInt(songs.length), 0);
                               }));
                             },
-                            child: new Icon(Icons.shuffle),
+                            child: new Icon(Icons.wb_incandescent),
                           ),
                           new Padding(
                               padding:
                                   const EdgeInsets.symmetric(vertical: 4.0)),
-                          new Text("Random"),
+                          new Text("Energy"),
+                        ],
+                      ),
+                      new Column(
+                        children: <Widget>[
+                          new FloatingActionButton(
+                            heroTag: "dark",
+                            onPressed: () {
+                              MyQueue.songs = songs;
+                              Navigator.of(context).push(
+                                new MaterialPageRoute(builder: (context) {
+                                  return new NowPlaying(widget.db, songs,
+                                    new Random().nextInt(songs.length), 0);
+                                }));
+                            },
+                            child: new Icon(Icons.toys),
+                          ),
+                          new Padding(
+                            padding:
+                            const EdgeInsets.symmetric(vertical: 4.0)),
+                          new Text("Dark"),
                         ],
                       ),
                     ],

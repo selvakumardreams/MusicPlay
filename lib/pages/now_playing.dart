@@ -240,23 +240,9 @@ class _stateNowPlaying extends State<NowPlaying>
       // color: Colors.transparent,
       child: new Column(
         children: <Widget>[
-          new AspectRatio(
-            aspectRatio: 15 / 10,
-            child: new Hero(
-              tag: song.id,
-              child: getImage(song) != null
-                ? new Image.file(
-                getImage(song),
-                fit: BoxFit.cover,
-              )
-                : new Image.asset(
-                "images/back.png",
-                fit: BoxFit.fitHeight,
-              ),
-            ),
-          ),
+
           new Container(
-            height: 80,
+            height: 350,
             width: double.infinity,
             child: WaveWidget(
               config: CustomConfig(
@@ -268,7 +254,7 @@ class _stateNowPlaying extends State<NowPlaying>
                 ],
                 durations: [35000, 19440, 10800, 6000],
                 heightPercentages: [0.20, 0.45, 0.35, 0.40],
-                blur: MaskFilter.blur(BlurStyle.inner, 10),
+                blur: MaskFilter.blur(BlurStyle.solid, 10),
               ),
               size: Size(double.infinity, double.infinity),
               waveAmplitude: 0,
@@ -346,31 +332,6 @@ class _stateNowPlaying extends State<NowPlaying>
               ),
             ),
           ),
-          new Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              new IconButton(
-                  icon: new Icon(Icons.shuffle),
-                  onPressed: () {
-                    widget.songs.shuffle();
-                    scaffoldState.currentState.showSnackBar(
-                        new SnackBar(content: new Text("List Suffled")));
-                  }),
-              new IconButton(
-                  icon: new Icon(Icons.queue_music),
-                  onPressed: _showBottomSheet),
-              new IconButton(
-                  icon: isfav == 0
-                      ? new Icon(Icons.favorite_border)
-                      : new Icon(
-                          Icons.favorite,
-                          color: Colors.redAccent,
-                        ),
-                  onPressed: () {
-                    setFav(song);
-                  })
-            ],
-          )
         ],
       ),
     );
@@ -471,31 +432,6 @@ class _stateNowPlaying extends State<NowPlaying>
                   ),
                 ),
               ),
-              new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  new IconButton(
-                      icon: new Icon(Icons.shuffle),
-                      onPressed: () {
-                        widget.songs.shuffle();
-                        scaffoldState.currentState.showSnackBar(
-                            new SnackBar(content: new Text("List Suffled")));
-                      }),
-                  new IconButton(
-                      icon: new Icon(Icons.queue_music),
-                      onPressed: _showBottomSheet),
-                  new IconButton(
-                      icon: isfav == 0
-                          ? new Icon(Icons.favorite_border)
-                          : new Icon(
-                              Icons.favorite,
-                              color: Colors.deepPurple,
-                            ),
-                      onPressed: () {
-                        setFav(song);
-                      })
-                ],
-              )
             ],
           ),
         )
