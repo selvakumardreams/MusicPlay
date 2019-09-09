@@ -11,6 +11,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:musicplay/main.dart';
 
 void main() {
+    // Execute the test
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MyApp());
